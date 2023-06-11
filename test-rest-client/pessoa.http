@@ -1,0 +1,32 @@
+@URL=http://localhost/Sobjucas
+
+### Obter todas as pessoas
+GET {{URL}}/api/get_user.php
+
+
+
+### Atualizar Pessoa
+POST {{URL}}/api/update_user.php?id=2
+Content-Type: application/json
+
+{
+  "nome": "Maria",
+  "email": "lind@a.com",
+  "telefone": "4599999999",
+  "nascimento": "2000-05-05"
+}
+
+### Criar uma pessoa
+POST {{URL}}/api/create_user.php
+Content-Type: application/json
+
+{
+  "nome": "Maria",
+  "email": "lind@a.com",
+  "senha": "1234",
+  "nascimento": "2000-05-05",
+}
+
+
+### Deletar uma pessoa
+GET {{URL}}/api/delete_user.php?id=7
