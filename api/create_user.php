@@ -12,16 +12,23 @@ $json = file_get_contents('php://input');
 
 // Criar um objeto a partir do JSON
 $user = json_decode($json);
+console.log($user);
 
 // Conteúdo de resposta para o cliente
-$responseBody = "";
+try{
+    $user = $userDAO->iensert($user);
+    $responseBody = json_encode($user); // Transf. em JSON
+}catch(Exception $e){
+    http_response_code(400);
+    $responseBody = ["erro" => "Não foi possível inserir o usuário"];
+}
 
 // Inserir o usuário no banco de dados
-$user = $userDAO->insert($user);
+//$user = $userDAO->insert($user);
 $responseBody = json_encode($user); // Transf. em JSON
 
 // Gerar a resposta para o cliente
 header("Content-type: application/json");
-print_r($responseBody);
+echo($responseBody);
 
 ?>

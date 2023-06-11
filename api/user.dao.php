@@ -13,7 +13,7 @@ class userDAO{
 
         $stmt = $this->pdo->prepare("INSERT INTO tb_usuario
             (nome, email, senha, nascimento)
-            VALUES (:nome, :email, :senha, :nascimento");
+            VALUES (:nome, :email, :senha, :nascimento);");
 
         //substituir os valores do SQL
         $stmt->bindValue("nome", $user->nome);
@@ -21,9 +21,9 @@ class userDAO{
         $stmt->bindValue("senha", $user->senha);
         $stmt->bindValue("nascimento", $user->nascimento);
 
-        //$stmt->execute();
-        $user = clone $user;
+        $stmt->execute();   
         $user->id = $this->pdo->lastInsertId();
+        $user = clone $user;
         return $user;
     }
 
