@@ -12,11 +12,11 @@ $json = file_get_contents('php://input');
 
 // Criar um objeto a partir do JSON
 $user = json_decode($json);
-console.log($user);
+//print_r($user);
 
 // Conteúdo de resposta para o cliente
 try{
-    $user = $userDAO->iensert($user);
+    $user = $userDAO->insert($user);
     $responseBody = json_encode($user); // Transf. em JSON
 }catch(Exception $e){
     http_response_code(400);
