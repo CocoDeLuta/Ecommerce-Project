@@ -12,6 +12,7 @@ Content-Type: application/json
 {
   "nome": "lolo",
   "descricao": "violao bonito",
+  "id_categoria": 1,
   "preco": "1250,00",
   "quantidade": 3
 }
@@ -23,6 +24,7 @@ Content-Type: application/json
 {
   "nome": "Violao",
   "descricao": "violao bonito",
+  "id_categoria": 1,
   "preco": "1250,00",
   "quantidade": 3
 }

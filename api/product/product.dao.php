@@ -10,12 +10,13 @@ class productDAO{
     public function insert($product){
     
         $stmt = $this->pdo->prepare("INSERT INTO tb_produto
-            (nome, descricao, preco, quantidade)
-            VALUES (:nome, :descricao, :preco, :quantidade);");
+            (nome, descricao, id_categoria, preco, quantidade)
+            VALUES (:nome, :descricao, :id_categoria, :preco, :quantidade);");
 
         //substituir os valores do SQL
         $stmt->bindValue("nome", $product->nome);
         $stmt->bindValue("descricao", $product->descricao);
+        $stmt->bindValue("id_categoria", $product->id_categoria);
         $stmt->bindValue("preco", $product->preco);
         $stmt->bindValue("quantidade", $product->quantidade);
 
@@ -49,7 +50,7 @@ class productDAO{
     //atualizar um usuario no banco de dados
     public function update($id, $product){
         $stmt = $this->pdo->prepare("UPDATE tb_produto SET
-                nome = :nome, descricao = :descricao,
+                nome = :nome, descricao = :descricao, id_categoria = :id_categoria,
                 preco = :preco, quantidade = :quantidade
             WHERE id = :id");
 
@@ -57,6 +58,7 @@ class productDAO{
             "id" => $id,
             "nome" => $product->nome,
             "descricao" => $product->descricao,
+            "id_categoria" => $product->id_categoria,
             "preco" => $product->preco,
             "quantidade" => $product->quantidade
         ];

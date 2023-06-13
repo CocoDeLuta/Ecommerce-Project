@@ -21,8 +21,8 @@ POST {{URL}}/api/user/create.php
 Content-Type: application/json
 
 {
-  "nome": "AAOSDJAOSIJD",
-  "email": "lind@a.com",
+  "nome": "Mateus",
+  "email": "mateus@gmail.com",
   "senha": "1234",
   "nascimento": "2000-05-05"
 }
