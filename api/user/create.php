@@ -1,7 +1,7 @@
 <?php
 
 // Abrir a conexão
-require_once('../data/connection.inc.php');
+require_once('../../data/connection.inc.php');
 require_once('user.dao.php');
 
 // Instanciar o DAO

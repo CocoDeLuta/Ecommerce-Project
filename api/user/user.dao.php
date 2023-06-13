@@ -9,8 +9,6 @@ class userDAO{
     //inserir um usuario no banco de dados
     public function insert($user){
     
-        //print_r($user);
-
         $stmt = $this->pdo->prepare("INSERT INTO tb_usuario
             (nome, email, senha, nascimento)
             VALUES (:nome, :email, :senha, :nascimento);");

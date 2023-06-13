@@ -2,7 +2,7 @@
 
     //Método para entregar uma lista de usuarios para o cliente
     //Formato de entrega: JSON
-    require_once('../data/connection.inc.php');
+    require_once('../../data/connection.inc.php');
     require_once('user.dao.php');
 
     $userDAO = new userDAO($pdo);

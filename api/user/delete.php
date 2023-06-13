@@ -1,8 +1,8 @@
 <?php
-    //Atualizar um usuario no banco de dados
+    //Deletar um usuario do banco de dados
 
     //Abrir a conexão
-    require_once('../data/connection.inc.php');
+    require_once('../../data/connection.inc.php');
     require_once('user.dao.php');
 
     //Instanciar o DAO
@@ -16,20 +16,19 @@
 
     if(!$id) {
         http_response_code(400);
-        $responseBody = '{ "message": "Usuario não informado"}';
+        $responseBody = '{ "message": "ID não informado"}';
     } else {
-        //Receber os dados do cliente
-        $json = file_get_contents('php://input');
 
-        //Criar um objeto a partir do JSON
-        $user = json_decode($json);
-
-        //Atualizar o usuario no banco de dados
-        $user = $userDAO->update($id, $user);
+        $qtd = $userDAO->delete($id);
+        if($qtd == 0) {
+            http_response_code(404);
+            $responseBody = '{ "message": "ID não existe"}';
+        }
     }
 
     //Gerar a resposta para o cliente
     header("Content-type: application/json");
     print_r($responseBody);
 
+    
 ?>

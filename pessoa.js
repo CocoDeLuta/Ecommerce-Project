@@ -9,7 +9,7 @@ const URL = "http://localhost/Sobjucas";
  */
 function getAll() {
   // Cliente HTTP faz a requisição para a API
-  fetch(`${URL}/api/get_user.php`)
+  fetch(`${URL}/api/user/get.php`)
     .then((res) => res.json()) // Convertemos JSON em OBJ
     .then((data) => {
       // Atualiza a tabela HTML
@@ -76,7 +76,7 @@ function addTableRow(pessoa) {
 function deletePessoa(tr, id) {
   console.log("Deletando o ID", id);
 
-  fetch(`${URL}/api/delete_user.php?id=${id}`)
+  fetch(`${URL}/api/user/delete.php?id=${id}`)
     .then((res) => {
       console.log(res);
       if (res.status == 200) tr.remove();
@@ -110,7 +110,7 @@ function save() {
   console.log(pessoa);
 
   // Invocar a API
-  fetch(`${URL}/api/create_user.php`, {
+  fetch(`${URL}/api/user/create.php`, {
     body: JSON.stringify(pessoa),
     method: "POST",
     headers: {
