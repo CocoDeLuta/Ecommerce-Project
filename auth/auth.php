@@ -26,12 +26,20 @@ class Auth {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && $user['nome'] == $credentials->nome && $user['senha'] == $credentials->senha) {
-            $payload = [
-                "id" => $user['id'],
-                "username" => $user['nome'],
-                "role" => "admin"
-            ];
-
+            if ($user['admin'] == 1){
+                $payload = [
+                    "id" => $user['id'],
+                    "username" => $user['nome'],
+                    "role" => "admin"
+                ];
+            } else {
+                $payload = [
+                    "id" => $user['id'],
+                    "username" => $user['nome'],
+                    "role" => "user"
+                ];
+            }
+            
             $token = JwtUtil::encode($payload, JWT_SECRET_KEY);
 
             $responseBody = '{ "token": "'.$token.'" }';
