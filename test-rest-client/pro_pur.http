@@ -6,12 +6,12 @@ GET {{URL}}/api/product-purchase/get.php
 
 
 ### Atualizar compras
-POST {{URL}}/api/product-purchase/update.php?id=1
+POST {{URL}}/api/product-purchase/update.php?id_compra=1&id_produto=2
 Content-Type: application/json
 
 {
   "id_compra": 1,
-  "id_produto": 1,
+  "id_produto": 2,
   "quantidade": 8
 }
 
@@ -20,11 +20,11 @@ POST {{URL}}/api/product-purchase/create.php
 Content-Type: application/json
 
 {
-  "id_compra": 1,
-  "id_produto": 6,
+  "id_compra": 3,
+  "id_produto": 2,
   "quantidade": 5
 }
 
 
 ### Deletar uma compra
-GET {{URL}}/api/product-purchase/delete.php?id=2
+GET {{URL}}/api/product-purchase/delete.php?id_compra=null&id_produto=2

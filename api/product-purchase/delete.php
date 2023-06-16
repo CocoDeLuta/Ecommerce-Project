@@ -9,17 +9,18 @@
     $pro_purDAO = new pro_purDAO($pdo);
 
     //Receber os dados do cliente
-    $id = $_REQUEST['compra_id, produto_id'];
+    $id_compra = $_REQUEST['id_compra'];
+    $id_produto = $_REQUEST['id_produto'];
 
     //Conteúdo de resposta para o cliente
     $responseBody = "";
 
-    if(!$compra_id, $produto_id) {
+    if(!$id_compra && !$id_produto) {
         http_response_code(400);
         $responseBody = '{ "message": "ID não informado"}';
     } else {
 
-        $qtd = $pro_purDAO->delete($compra_id, $produto_id);
+        $qtd = $pro_purDAO->delete($id_compra, $id_produto);
         if($qtd == 0) {
             http_response_code(404);
             $responseBody = '{ "message": "ID não existe"}';

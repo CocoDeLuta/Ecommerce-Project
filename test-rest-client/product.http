@@ -22,7 +22,7 @@ POST {{URL}}/api/product/create.php
 Content-Type: application/json
 
 {
-  "nome": "Violao",
+  "nome": "Guitarra",
   "descricao": "violao bonito",
   "id_categoria": 1,
   "preco": "1250,00",

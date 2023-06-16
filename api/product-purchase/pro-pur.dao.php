@@ -19,7 +19,6 @@ class pro_purDAO{
         $stmt->bindValue("quantidade", $obj->quantidade);
 
         $stmt->execute();   
-        $obj->id = $this->pdo->lastInsertId();
         $obj = clone $obj;
         return $obj;
     }
@@ -37,7 +36,8 @@ class pro_purDAO{
         $stmt = $this->pdo->prepare("DELETE FROM tb_compra_produto
         WHERE id_compra = :pur_id AND id_produto = :prod_id");
 
-        $stmt->bindValue("id", $id);
+        $stmt->bindValue(":pur_id", $pur_id);
+        $stmt->bindValue(":prod_id", $prod_id);
 
         $stmt->execute();
 
@@ -47,6 +47,7 @@ class pro_purDAO{
 
     //atualizar um usuario no banco de dados
     public function update($pur_id, $prod_id, $obj){
+        
         $stmt = $this->pdo->prepare("UPDATE tb_compra_produto SET
                 id_compra = :id_compra, id_produto = :id_produto, quantidade = :quantidade
             WHERE id_compra = :pur_id AND id_produto = :prod_id");
@@ -56,6 +57,10 @@ class pro_purDAO{
             "id_produto" => $obj->id_produto,
             "quantidade" => $obj->quantidade,
         ];
+
+        $data["pur_id"] = $pur_id;
+        $data["prod_id"] = $prod_id;
+        
 
         $stmt->execute($data);
 

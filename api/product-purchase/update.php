@@ -9,12 +9,13 @@
     $pro_purDAO = new pro_purDAO($pdo);
 
     //Receber os dados do cliente
-    $id = $_REQUEST['compra_id, produto_id'];
+    $id_compra = $_REQUEST['id_compra'];
+    $id_produto = $_REQUEST['id_produto'];
 
     //Conteúdo de resposta para o cliente
     $responseBody = "";
 
-    if(!$compra_id, $produto_id) {
+    if(!$id_compra && !$id_produto) {
         http_response_code(400);
         $responseBody = '{ "message": "Usuario não informado"}';
     } else {
@@ -25,7 +26,7 @@
         $obj = json_decode($json);
        
         //Atualizar o usuario no banco de dados
-        $obj = $pro_purDAO->update($compra_id, $produto_id, $obj);
+        $obj = $pro_purDAO->update($id_compra, $id_produto, $obj);
     }
 
     //Gerar a resposta para o cliente
