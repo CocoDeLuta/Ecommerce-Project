@@ -42,8 +42,7 @@ class Auth {
             
             $token = JwtUtil::encode($payload, JWT_SECRET_KEY);
 
-            $responseBody = '{ "token": "'.$token.'"
-                               "role": "'$payload.role'" }';
+            $responseBody = '{ "token": "'.$token.'", "role": "'.$payload['role'].'" }';
         } else {
             http_response_code(401);
             $responseBody = '{ "message": "Credencial inválida" }';

@@ -14,6 +14,30 @@ $json = file_get_contents('php://input');
 $user = json_decode($json);
 //print_r($user);
 
+// Verificar se o email e o nome já estão inseridos no banco de dados
+ $stmt = $pdo->prepare("SELECT * FROM tb_usuario WHERE nome = :nome OR email = :email");
+ $stmt->bindValue(":nome", $user->nome);
+ $stmt->bindValue(":email", $user->email);
+ $stmt->execute();
+
+ $verific = $stmt->fetch(PDO::FETCH_ASSOC);
+
+ if ($verific && $verific['nome'] == $user->nome) {
+        print_r($verific['nome']);
+        http_response_code(401);
+        $responseBody = '{ "message": "Usuário já cadastrado" }';
+        echo $responseBody;
+        exit();
+    } 
+    if (($verific && $verific['email'] == $user->email)) {
+        print_r($verific['email']);
+        http_response_code(401);
+        $responseBody = '{ "message": "Email já cadastrado" }';
+        echo $responseBody;
+        exit();
+    }
+ 
+
 // Conteúdo de resposta para o cliente
 try{
     $user = $userDAO->insert($user);

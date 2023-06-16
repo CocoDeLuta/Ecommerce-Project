@@ -20,8 +20,8 @@ POST {{URL}}/api/product-purchase/create.php
 Content-Type: application/json
 
 {
-  "id_compra": 3,
-  "id_produto": 2,
+  "id_compra": 1,
+  "id_produto": 1,
   "quantidade": 5
 }
 

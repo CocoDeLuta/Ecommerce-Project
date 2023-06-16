@@ -6,6 +6,6 @@
 POST {{URL}}/auth.php
 
 {
-    "nome": "Mateus",
+    "nome": "Maria",
     "senha": "1234"
 }

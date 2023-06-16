@@ -6,13 +6,23 @@ GET {{URL}}/api/purchase/get.php
 
 
 ### Atualizar compras
-POST {{URL}}/api/purchase/update.php?compra_id=1?usuario_id=1
+POST {{URL}}/api/purchase/update.php?compra_id=1
 Content-Type: application/json
 
 {
   "id_usuario": 1,
   "valor": "742.00",
-  "data_compra": "2021-05-15"
+  "data_compra": "2021-05-15",
+  "itens": [
+    {
+      "id_produto": 1,
+      "quantidade": 1
+    },
+    {
+      "id_produto": 2,
+      "quantidade": 4
+    }
+  ]
 }
 
 ### Criar uma compra

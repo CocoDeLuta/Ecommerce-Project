@@ -13,13 +13,13 @@ admin TINYINT NOT NULL DEFAULT 0
 
 CREATE TABLE tb_categoria (
 id INTEGER AUTO_INCREMENT PRIMARY KEY,
-nome VARCHAR(155) NOT NULL,
+nome VARCHAR(155) UNIQUE NOT NULL,
 descricao VARCHAR(375)
 );
 
 CREATE TABLE tb_produto (
 id INTEGER AUTO_INCREMENT PRIMARY KEY,
-nome VARCHAR(155) NOT NULL,
+nome VARCHAR(155) UNIQUE NOT NULL,
 descricao VARCHAR(375),
 id_categoria INTEGER REFERENCES tb_categoria(id),
 preco FLOAT NOT NULL,
@@ -41,3 +41,9 @@ quantidade FLOAT NOT NULL,
 FOREIGN KEY (id_compra) REFERENCES tb_compra(id),
 FOREIGN KEY (id_produto) REFERENCES tb_produto(id)
 );
+
+INSERT INTO tb_usuario (nome, email, senha, nascimento, admin) 
+VALUES ('admin', 'admin@gmai', 'admin', '1999-01-01', 1);
+
+INSERT INTO tb_categoria (nome, descricao)
+VALUES ('Sem categoria', 'Produtos sem categoria, por enquanto');

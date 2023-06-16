@@ -6,7 +6,7 @@ GET {{URL}}/api/product/get.php
 
 
 ### Atualizar produtos
-POST {{URL}}/api/product/update.php?id=4
+POST {{URL}}/api/product/update.php?id=1
 Content-Type: application/json
 
 {
@@ -23,7 +23,7 @@ Content-Type: application/json
 
 {
   "nome": "Guitarra",
-  "descricao": "violao bonito",
+  "descricao": "uma guitarra bem legal",
   "id_categoria": 1,
   "preco": "1250,00",
   "quantidade": 3
