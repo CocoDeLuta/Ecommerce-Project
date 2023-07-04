@@ -1,4 +1,4 @@
-@URL=http://localhost/Sobjucas
+@URL=http://localhost/Sobjucas/back-end
 
 ### Obter todos os produtos
 GET {{URL}}/api/product/get.php

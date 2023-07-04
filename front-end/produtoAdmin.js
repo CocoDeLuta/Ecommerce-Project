@@ -40,10 +40,15 @@ function addTableRow(product) {
 
 
   const td4 = document.createElement("td");
-  td4.innerHTML = product.quantidade;
+  td4.innerHTML = product.id_categoria;
 
-  
   const td5 = document.createElement("td");
+  td5.innerHTML = product.descricao;
+
+  const td6 = document.createElement("td");
+  td6.innerHTML = product.quantidade;
+  
+  const td7 = document.createElement("td");
 
   const btRemove = document.createElement("button");
   btRemove.innerHTML = "Excluir";
@@ -53,13 +58,15 @@ function addTableRow(product) {
     2;
   };
 
-  td5.appendChild(btRemove);
+  td7.appendChild(btRemove);
 
   tr.appendChild(td1);
   tr.appendChild(td2);
   tr.appendChild(td3);
   tr.appendChild(td4);
   tr.appendChild(td5);
+  tr.appendChild(td6);
+  tr.appendChild(td7);
 
 
   table.tBodies[0].appendChild(tr);
