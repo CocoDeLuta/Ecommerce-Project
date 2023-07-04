@@ -41,6 +41,7 @@ try{
 $responseBody = json_encode($product); // Transf. em JSON
 
 // Gerar a resposta para o cliente
+http_response_code(200);
 header("Content-type: application/json");
 echo($responseBody);
 

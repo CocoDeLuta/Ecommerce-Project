@@ -55,5 +55,6 @@ $responseBody = json_encode($user); // Transf. em JSON
 // Gerar a resposta para o cliente
 header("Content-type: application/json");
 echo($responseBody);
+http_response_code(201);
 
 ?>

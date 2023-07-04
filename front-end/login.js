@@ -13,6 +13,7 @@ function log() {
   fetch(`${URL}/back-end/auth/auth.php`, {
     body: JSON.stringify(pessoa),
     method: "POST",
+    mode: "no-cors",
     headers: {
       "Content-type": "application/json",
     },

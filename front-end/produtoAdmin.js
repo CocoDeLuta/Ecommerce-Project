@@ -1,9 +1,9 @@
 
-const URL = "http://localhost/Sobjucas/back-end";
+const URL = "http://localhost/Sobjucas";
 
 function getAll() {
   // Cliente HTTP faz a requisição para a API
-  fetch(`${URL}/api/product/get.php`)
+  fetch(`${URL}/back-end/api/product/get.php`)
     .then((res) => res.json()) // Convertemos JSON em OBJ
     .then((data) => {
       // Atualiza a tabela HTML
@@ -21,39 +21,37 @@ function getAll() {
  * Objetivo: adicionar uma linha na tabela HTML.
  */
 function addTableRow(product) {
+  //console.log(product.id_categoria);
+
   const table = document.getElementById("tbproduto");
 
   // Criando uma linha para adicionar na tabela
   const tr = document.createElement("tr");
 
- 
   const td1 = document.createElement("td");
   td1.innerHTML = product.id;
-
 
   const td2 = document.createElement("td");
   td2.innerHTML = product.nome;
 
-
   const td3 = document.createElement("td");
-  td3.innerHTML = product.preco;
-
+  td3.innerHTML = product.descricao;
 
   const td4 = document.createElement("td");
   td4.innerHTML = product.id_categoria;
 
   const td5 = document.createElement("td");
-  td5.innerHTML = product.descricao;
+  td4.innerHTML = product.preco;
 
   const td6 = document.createElement("td");
-  td6.innerHTML = product.quantidade;
-  
+  td5.innerHTML = product.quantidade;
+
   const td7 = document.createElement("td");
 
   const btRemove = document.createElement("button");
   btRemove.innerHTML = "Excluir";
   btRemove.onclick = () => {
-    
+
     deleter(tr, product.id);
     2;
   };
@@ -68,7 +66,6 @@ function addTableRow(product) {
   tr.appendChild(td6);
   tr.appendChild(td7);
 
-
   table.tBodies[0].appendChild(tr);
 }
 
@@ -76,7 +73,7 @@ function addTableRow(product) {
 function deleter(tr, id) {
   console.log("Deletando o ID", id);
 
-  fetch(`${URL}/api/product/delete.php?id=${id}`)
+  fetch(`${URL}/back-end/api/product/delete.php?id=${id}`)
     .then((res) => {
       console.log(res);
       if (res.status == 200) tr.remove();
@@ -95,20 +92,28 @@ function deleter(tr, id) {
 function save() {
   // Obter a referência para os campos input
   const fNome = document.getElementById("fNome");
-  const fEmail = document.getElementById("fEmail");
-  const fNascimento = document.getElementById("fNascimento");
+  const fDescricao = document.getElementById("fDescricao");
+  const fIdCategoria = document.getElementById("fIdCategoria");
+  const fPreco = document.getElementById("fPreco");
+  const fQuantidade = document.getElementById("fQuantidade");
 
-
+  if (fNome.value == "" || fDescricao.value == ""
+    || fIdCategoria.value == "" || fPreco.value == ""
+    || fQuantidade.value == "") {
+    alert("Preencha todos os campos!");
+    return;
+  }
   const product = {
     nome: fNome.value,
-    email: fEmail.value,
-    nascimento: fNascimento.value,
-    senha: '1234'
+    descricao: fDescricao.value,
+    id_categoria: fIdCategoria.value,
+    preco: fPreco.value,
+    quantidade: fQuantidade.value
   };
 
 
   // Invocar a API
-  fetch(`${URL}/api/product/create.php`, {
+  fetch(`${URL}/back-end/api/product/create.php`, {
     body: JSON.stringify(product),
     method: "POST",
     headers: {
@@ -118,7 +123,7 @@ function save() {
     if (res.status == 200 || res.status == 201) {
       alert("Salvo com sucesso!");
 
-      res.json().then( pes => {addTableRow(pes)});
+      res.json().then(pes => { addTableRow(pes) });
     } else alert("Falha ao salvar");
   });
 }

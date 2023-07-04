@@ -39,6 +39,7 @@ try{
 
 // Inserir o usuário no banco de dados
 $responseBody = json_encode($category); // Transf. em JSON
+http_response_code(201); // Definir o código de resposta HTTP
 
 // Gerar a resposta para o cliente
 header("Content-type: application/json");

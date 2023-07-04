@@ -12,6 +12,11 @@ function register() {
     return;
   }
 
+  if (fNome.value == "" || fSenha.value == "" || fEmail.value == "" || fData.value == "") {
+    alert("Preencha todos os campos!");
+    return;
+  }
+
   const pessoa = {
     nome: fNome.value,
     senha: fSenha.value,
@@ -20,7 +25,7 @@ function register() {
   };
 
 
-  fetch(`${URL}/api/user/create.php`, {
+  fetch(`${URL}/back-end/api/user/create.php`, {
     body: JSON.stringify(pessoa),
     method: "POST",
     headers: {
@@ -38,7 +43,7 @@ function register() {
         alert(error.message);
       });
     } else {
-      alert("Ocorreu um erro na autenticação");
+      alert("Ocorreu um erro, tente novamente");
     }
   });
 

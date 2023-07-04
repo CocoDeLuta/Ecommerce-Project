@@ -30,6 +30,7 @@
     }
 
     //Gerar a resposta para o cliente
+    http_response_code(200);
     header("Content-type: application/json");
     print_r($responseBody);
 

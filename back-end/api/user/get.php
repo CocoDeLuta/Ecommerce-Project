@@ -17,5 +17,5 @@
     //gerar a resposta para o cliente
     header("Content-type: application/json");
     print_r($responseBody);
-
+    http_response_code(201);
 ?>
