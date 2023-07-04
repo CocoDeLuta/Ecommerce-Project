@@ -1,0 +1,34 @@
+@URL=http://localhost/Sobjucas
+
+### Obter todos os produtos
+GET {{URL}}/back-end/api/product/get.php
+
+
+
+### Atualizar produtos
+POST {{URL}}/back-end/api/product/update.php?id=4
+Content-Type: application/json
+
+{
+  "nome": "lolo",
+  "descricao": "violao bonito",
+  "id_categoria": 1,
+  "preco": "1250,00",
+  "quantidade": 3
+}
+
+### Criar um produto
+POST {{URL}}/back-end/api/product/create.php
+Content-Type: application/json
+
+{
+  "nome": "Guitarra",
+  "descricao": "violao bonito",
+  "id_categoria": 1,
+  "preco": "1250,00",
+  "quantidade": 3
+}
+
+
+### Deletar um produto
+GET {{URL}}/back-end/api/product/delete.php?id=2

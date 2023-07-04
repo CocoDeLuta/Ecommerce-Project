@@ -1,0 +1,11 @@
+### Cliente de autenticação
+
+@URL=http://localhost/Sobjucas/back-end/auth
+
+### Recurso de autenticação
+POST {{URL}}/auth.php
+
+{
+    "nome": "Mateus",
+    "senha": "1234"
+}

@@ -1,0 +1,30 @@
+@URL=http://localhost/Sobjucas
+
+### Obter todas as compras
+GET {{URL}}/back-end/api/purchase/get.php
+
+
+
+### Atualizar compras
+POST {{URL}}/back-end/api/purchase/update.php?compra_id=1?usuario_id=1
+Content-Type: application/json
+
+{
+  "id_usuario": 1,
+  "valor": "742.00",
+  "data_compra": "2021-05-15"
+}
+
+### Criar uma compra
+POST {{URL}}/back-end/api/purchase/create.php
+Content-Type: application/json
+
+{
+  "id_usuario": 1,
+  "valor": "742.00",
+  "data_compra": "2021-05-15"
+}
+
+
+### Deletar uma compra
+GET {{URL}}/back-end/api/purchase/delete.php?id=2

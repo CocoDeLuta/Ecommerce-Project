@@ -1,0 +1,29 @@
+@URL=http://localhost/Sobjucas
+
+### Obter todas as categorias
+GET {{URL}}/back-end/api/category/get.php
+
+
+
+### Atualizar categoria
+POST {{URL}}/back-end/api/category/update.php?id=2
+Content-Type: application/json
+
+{
+  "nome": "lolo",
+  "descricao": "violao bonito"
+}
+
+### Criar uma categoria
+POST {{URL}}/back-end/api/category/create.php
+Content-Type: application/json
+
+{
+  "nome": "Sem categoria",
+  "descricao": "Essa categoria nao tem descricao, é a categoria padrao"
+}
+  
+
+
+### Deletar uma categoria
+GET {{URL}}/api/category/delete.php?id=2
