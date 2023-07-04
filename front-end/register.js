@@ -1,4 +1,4 @@
-const URL = "http://localhost/Sobjucas/back-end";
+const URL = "http://localhost/Sobjucas";
 
 function register() {
   const fNome = document.getElementById("fNome");
