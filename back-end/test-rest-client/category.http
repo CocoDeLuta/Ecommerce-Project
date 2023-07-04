@@ -19,8 +19,8 @@ POST {{URL}}/back-end/api/category/create.php
 Content-Type: application/json
 
 {
-  "nome": "Sem categoria",
-  "descricao": "Essa categoria nao tem descricao, é a categoria padrao"
+  "nome": "Percurssao",
+  "descricao": "instrumentos de percussao, batuques, ritmo"
 }
   
 

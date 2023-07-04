@@ -17,6 +17,11 @@ $purchase = json_decode($json);
 // Conteúdo de resposta para o cliente
 try{
     $purchase = $purchaseDAO->insert($purchase);
+
+    foreach($purchase->itens as $item) {
+        $item->id_compra = $purchase->id;
+        $prodPurDAO->insert($item); //ver variavel certa
+    }
     $responseBody = json_encode($purchase); // Transf. em JSON
 }catch(Exception $e){
     http_response_code(400);

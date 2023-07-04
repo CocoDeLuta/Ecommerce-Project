@@ -1,12 +1,12 @@
 @URL=http://localhost/Sobjucas
 
 ### Obter todos os produtos
-GET {{URL}}/back-end/api/product/get.php
+GET {{URL}}/api/product/get.php
 
 
 
 ### Atualizar produtos
-POST {{URL}}/back-end/api/product/update.php?id=4
+POST {{URL}}/api/product/update.php?id=4
 Content-Type: application/json
 
 {
@@ -18,7 +18,7 @@ Content-Type: application/json
 }
 
 ### Criar um produto
-POST {{URL}}/back-end/api/product/create.php
+POST {{URL}}/api/product/create.php
 Content-Type: application/json
 
 {
