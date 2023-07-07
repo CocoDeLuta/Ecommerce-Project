@@ -41,10 +41,10 @@ function addTableRow(product) {
   td4.innerHTML = product.id_categoria;
 
   const td5 = document.createElement("td");
-  td4.innerHTML = product.preco;
+  td5.innerHTML = product.preco;
 
   const td6 = document.createElement("td");
-  td5.innerHTML = product.quantidade;
+  td6.innerHTML = product.quantidade;
 
   const td7 = document.createElement("td");
 

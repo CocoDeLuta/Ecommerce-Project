@@ -32,6 +32,16 @@ class categoryDAO{
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
+    public function getOne($id){
+        $stmt = $this->pdo->prepare("SELECT * FROM tb_categoria WHERE id=:id");
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+        
+        $cat = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        return $cat;
+    }
+
     //deletar um usuario do banco de dados
     public function delete($id){
         $stmt = $this->pdo->prepare("DELETE FROM tb_categoria

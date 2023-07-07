@@ -100,8 +100,8 @@ function saveCateg() {
   }).then((res) => {
     if (res.status == 200 || res.status == 201) {
       alert("Salvo com sucesso!");
-
       res.json().then(pes => { addTableRowCateg(pes) });
+      
     } else alert("Falha ao salvar");
   });
 

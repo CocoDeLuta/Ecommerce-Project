@@ -4,6 +4,8 @@
 require_once('../../data/connection.inc.php');
 require_once('category.dao.php');
 include("../enable-cors.php");
+include("../../auth/lib/jwt.inc.php");
+include("../../validate-admin.inc.php");
 
 // Instanciar o DAO
 $categoryDAO = new categoryDAO($pdo);

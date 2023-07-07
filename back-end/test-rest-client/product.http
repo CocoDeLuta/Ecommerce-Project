@@ -1,7 +1,10 @@
 @URL=http://localhost/Sobjucas/back-end
 
+@JWT-admin = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIn0.gpFe96SqBlPONuca_ZIkct53feYmYvdOhkRRwuIogZQ
+@JWT-user = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ1c2VybmFtZSI6Ik1hdGV1cyIsInJvbGUiOiJ1c2VyIn0.0NJB8O2KHEphu1C8Lsw-WrJb5g-7VMeMZ1r7mv0eKb4
 ### Obter todos os produtos
 GET {{URL}}/api/product/get.php
+Authorization: {{JWT-user}}
 
 
 
@@ -20,11 +23,12 @@ Content-Type: application/json
 ### Criar um produto
 POST {{URL}}/api/product/create.php
 Content-Type: application/json
+//Authorization: {{JWT-user}}
 
 {
-  "nome": "Guitarra",
+  "nome": "buceta",
   "descricao": "violao bonito",
-  "id_categoria": 1,
+  "id_categoria": 3,
   "preco": "1250,00",
   "quantidade": 3
 }

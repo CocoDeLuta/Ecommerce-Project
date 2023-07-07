@@ -4,6 +4,8 @@
 require_once('../../data/connection.inc.php');
 require_once('product.dao.php');
 include("../enable-cors.php");
+//include("../../validate-jwt.inc.php");
+//include("../../validate-admin.inc.php");
 
 // Instanciar o DAO
 $productDAO = new productDAO($pdo);

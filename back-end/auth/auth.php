@@ -2,7 +2,8 @@
 
 require_once("lib/jwt.inc.php");
 require_once("config.php");
-include("../../api/enable-cors.php");
+include("../api/enable-cors.php");
+
 
 class Auth {
     private $pdo;
@@ -31,28 +32,35 @@ class Auth {
                 $payload = [
                     "id" => $user['id'],
                     "username" => $user['nome'],
-                    "role" => "admin"
+                    "admin" => 1
                 ];
+                
             } else {
                 $payload = [
                     "id" => $user['id'],
                     "username" => $user['nome'],
-                    "role" => "user"
+                    "admin" => 0
                 ];
+                
             }
-            
-            $token = JwtUtil::encode($payload, JWT_SECRET_KEY);
 
-            $responseBody = '{ "token": "'.$token.'"
-                                "admin": "'.$user['admin'].'"}';
-            http_response_code(200);
+            // Generate the JWT here
+            $token = JwtUtil::encode($payload, JWT_SECRET_KEY);
             
+            
+            // Set the appropriate response headers to indicate JSON content
+            header('Content-Type: application/json');
+            
+            $responseBody = json_encode(['token' => $token, 'admin' => $user['admin']]);
         } else {
+            $responseBody = json_encode(['message' => 'Credencial inválida']);
+            // Set the appropriate response headers to indicate JSON content
+            header('Content-Type: application/json');
             http_response_code(401);
-            $responseBody = '{ "message": "Credencial inválida" }';
         }
 
         echo $responseBody;
+        
     }
 }
 

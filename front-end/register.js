@@ -36,7 +36,7 @@ function register() {
       res.json().then((data) => {
         // console.log(localStorage.getItem('token'));
         alert("Registrado com sucesso");
-        window.location.assign("");
+        window.location.assign("home.html");
       });
     } else if (res.status === 401) {
       res.json().then((error) => {

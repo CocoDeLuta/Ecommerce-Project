@@ -3,7 +3,10 @@
 ### Obter todas as categorias
 GET {{URL}}/back-end/api/category/get.php
 
+@cat = 3;
 
+### Oter uma categoria
+GET {{URL}}/back-end/api/category/getOne.php?id={{cat}}
 
 ### Atualizar categoria
 POST {{URL}}/back-end/api/category/update.php?id=2

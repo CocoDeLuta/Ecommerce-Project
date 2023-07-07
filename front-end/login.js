@@ -13,18 +13,22 @@ function log() {
   fetch(`${URL}/back-end/auth/auth.php`, {
     body: JSON.stringify(pessoa),
     method: "POST",
-    mode: "no-cors",
     headers: {
       "Content-type": "application/json",
+      "Access-Control-Allow-Origin": "*", // Required for CORS support to work
     },
   }).then((res) => {
     if (res.status === 200 || res.status === 201) {
-      alert("Logado com sucesso");
-
       res.json().then((data) => {
-        addTableRow(data);
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('admin', data.admin);
+        // console.log(localStorage.getItem('token'));
+        alert("Logado com sucesso");
+      ""
+        //window.location.assign("");
+        
       });
-    } else if (res.status === 401) {
+    } else if (res.status === 401) {""
       res.json().then((error) => {
         alert(error.message);
       });
