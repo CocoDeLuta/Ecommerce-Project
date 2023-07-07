@@ -34,10 +34,18 @@
             <a href="register.html">REGISTRAR</a>
         </div>
         <div id="administrador">
-            <a href="adm.html">ÁREA DO ADMINISTRADOR</a>
+            <a href="adm.html" id="adm" onclick="validateAdmin()">ÁREA DO ADMINISTRADOR</a>
+        </div>
+        <div id="logout">
+            <a href="home.html" onclick="logOut()">LOGOUT</a>
+        </div>
+        <div id="carrinho">
+            <a href="carrinho.html">CARRINHO</a>
         </div>
     </div>
 
+
+    <h2>Login</h2>
     <div class="my-5" id="login">
 
         <fieldset>
@@ -51,9 +59,10 @@
             <br>
             <input type="password" id="fSenha">
         </fieldset>
-
+        <br>
         <button class="btn btn-primary" onclick="log()">Entrar</button>
     </div>
+
 </body>
 
 </html>

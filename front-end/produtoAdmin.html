@@ -29,9 +29,10 @@
 
   </div>
 
+
   <div id="menus">
       <div id="home">
-          <a href="home.html">HOME</a>
+          <a href="home.html" >HOME</a>
       </div>
       <div id="login">
           <a href="login.html">LOGIN</a>
@@ -40,7 +41,13 @@
           <a href="register.html">REGISTRAR</a>
       </div>
       <div id="administrador">
-          <a href="adm.html">ÁREA DO ADMINISTRADOR</a>
+          <a href="adm.html" id="adm" onclick="validateAdmin()">ÁREA DO ADMINISTRADOR</a>
+      </div>
+      <div id="logout">
+          <a href="home.html" onclick="logOut()">LOGOUT</a>
+      </div>
+      <div id="carrinho">
+          <a href="carrinho.html" >CARRINHO</a>
       </div>
   </div>
 
@@ -83,7 +90,7 @@
             <input type="number" id="fQuantidade" class="form-control" />
           </fieldset>
 
-          <button class="btn btn-primary" onclick="save()">Salvar</button>
+          <button class="btn btn-primary" onclick="validateAdmin()" onclick="save()">Salvar</button>
       </div>
 
       <table id="tbproduto" class="table table-striped table-hover">
@@ -123,7 +130,7 @@
               <input type="text" id="fDescricaoCateg" class="form-control" />
             </fieldset>
   
-            <button class="btn btn-primary" onclick="saveCateg()" href="JavaScript: location.reload(true);">Salvar</button>
+            <button class="btn btn-primary" id="adm" onclick="validateAdmin()" onclick="saveCateg()" href="JavaScript: location.reload(true);">Salvar</button>
         </div>
   
         <table id="tb_categoria" class="table table-striped table-hover">

@@ -8,7 +8,8 @@
      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous" defer></script>
+     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous" defer></script>        
+     <script src=""></script>
 </head>
 <body>
     <div id="cabecalho">
@@ -28,9 +29,16 @@
             <a href="register.html">REGISTRAR</a>
         </div>
         <div id="administrador">
-            <a href="adm.html">ÁREA DO ADMINISTRADOR</a>
+            <a href="adm.html" id="adm" onclick="validateAdmin()">ÁREA DO ADMINISTRADOR</a>
+        </div>
+        <div id="logout">
+            <a href="home.html" onclick="logOut()">LOGOUT</a>
+        </div>
+        <div id="carrinho">
+            <a href="carrinho.html" >CARRINHO</a>
         </div>
     </div>
+
 
 
     <div id="conteudo">
@@ -38,7 +46,6 @@
 
         <a href="usuarioAdmin.html">Gerenciar usuários</a><br>
         <a href="produtoAdmin.html">Gerenciar Produtos</a><br>
-        <a href="compraAdmin.html">Gerenciar Compras</a><br>
         
     </div>
 </body>

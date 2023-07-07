@@ -21,7 +21,7 @@
 
     <div id="menus">
         <div id="home">
-            <a href="home.html" onclick="validate()" >HOME</a>
+            <a href="home.html" >HOME</a>
         </div>
         <div id="login">
             <a href="login.html">LOGIN</a>
@@ -30,12 +30,19 @@
             <a href="register.html">REGISTRAR</a>
         </div>
         <div id="administrador">
-            <a href="adm.html">ÁREA DO ADMINISTRADOR</a>
+            <a href="adm.html" id="adm" onclick="validateAdmin()">ÁREA DO ADMINISTRADOR</a>
+        </div>
+        <div id="logout">
+            <a href="home.html" onclick="logOut()">LOGOUT</a>
+        </div>
+        <div id="carrinho">
+            <a href="carrinho.html" >CARRINHO</a>
         </div>
     </div>
 
-
+    
     <div id="conteudo">
+        <h1>Produtos:</h1>
         
         <div class="container">
 
